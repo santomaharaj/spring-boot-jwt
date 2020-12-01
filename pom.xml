@@ -57,9 +57,9 @@
 				<artifactId>heroku-maven-plugin</artifactId>
 				<version>2.0.11</version>
 				<configuration>
-					<appName>cicd-spring-boot-java-app</appName>
+					<appName>spring-boot-jwt</appName>
 					<processTypes>
-						<web>java $JAVA_OPTS -jar -Dserver.port=$PORT cicd-spring-boot-java-app</web>
+						<web>java $JAVA_OPTS -jar -Dserver.port=$PORT spring-boot-jwt</web>
 					</processTypes>
 				</configuration>
 			</plugin>
