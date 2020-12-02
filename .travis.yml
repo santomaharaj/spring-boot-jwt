@@ -10,7 +10,6 @@ services:
 # SonarCloud
 
 before_install:
-- mvn clean
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker pull openjdk:11-jre-slim-sid
 
