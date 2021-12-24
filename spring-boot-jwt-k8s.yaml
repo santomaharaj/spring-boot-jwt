@@ -12,11 +12,11 @@ spec:
         name: spring-boot-jwt
     spec:
       containers:
-        - image: santhoshm/spring-boot-jwt
-          name: spring-boot-jwt
-          ports:
-            - name: springboot
-              containerPort: 8080
+      - image: santhoshm/spring-boot-jwt
+        name: spring-boot-jwt
+        ports:
+        - name: springboot
+          containerPort: 8080
 ---
 # Node Port Service
 apiVersion: v1
@@ -28,7 +28,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
+  - port: 8080
+    targetPort: 8080
   selector:
     name: spring-boot-jwt
