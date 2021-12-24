@@ -1,0 +1,34 @@
+apiVersion: V1
+kind: ReplicationController
+metadata:
+  labels:
+    name: spring-boot-jwt
+  name: springbootjwt
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: spring-boot-jwt
+    spec:
+      containers:
+        - image: santhoshm/spring-boot-jwt
+          name: spring-boot-jwt
+          ports:
+            - name: springboot
+              containerPort: 8080
+---
+# Node Port Service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: spring-boot-jwt
+  name: spring-boot-jwt
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    name: spring-boot-jwt
