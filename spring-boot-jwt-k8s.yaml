@@ -29,6 +29,6 @@ spec:
   type: NodePort
   ports:
   - port: 8080
-    targetPort: 8080
+    targetPort: 333333
   selector:
     name: spring-boot-jwt
