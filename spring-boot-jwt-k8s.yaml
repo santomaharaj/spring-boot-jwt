@@ -28,7 +28,7 @@ metadata:
     name: spring-boot-jwt
   name: spring-boot-jwt
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
