@@ -19,6 +19,8 @@ spec:
           image: santhoshm/spring-boot-jwt
           ports:
             - containerPort: 8080
+              protocol: TCP
+              name: http
 ---
 # Node Port Service
 apiVersion: v1
@@ -32,6 +34,7 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      protocol: TCP      
+      protocol: TCP
+      name: http      
   selector:
     name: spring-boot-jwt
