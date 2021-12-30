@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     name: spring-boot-jwt
-  name: springbootjwt
+  name: spring-boot-jwt
 spec:
   replicas: 1
   selector:
@@ -30,11 +30,29 @@ metadata:
     name: spring-boot-jwt
   name: spring-boot-jwt
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 9999
       targetPort: 8080
       protocol: TCP
-      name: http      
+      name: http
   selector:
     name: spring-boot-jwt
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jwt-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /hello
+        pathType: Prefix
+        backend:
+          service:
+            name: spring-boot-jwt
+            port:
+              number: 9999
