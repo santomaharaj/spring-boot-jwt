@@ -64,7 +64,8 @@ spec:
                 name: spring-boot-jwt
                 port:
                   number: 9999
-    - http:
+    - host: metrics.example.com
+      http:
         paths:
           - path: /
             pathType: Prefix
