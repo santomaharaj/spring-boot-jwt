@@ -2,7 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    name: spring-boot-jwt
+    app: spring-boot-jwt
+    version: v1
   name: spring-boot-jwt
 spec:
   replicas: 1
@@ -27,7 +28,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: spring-boot-jwt
+    app: spring-boot-jwt
+    service: spring-boot-jwt
   name: spring-boot-jwt
 spec:
   type: ClusterIP
